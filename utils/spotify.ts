@@ -2,11 +2,11 @@
 // utils/spotify.ts
 
 // Scopes required to read playback state and control it
+// Note: 'user-read-queue' is not a valid scope string; access is granted via 'user-read-currently-playing'
 const SCOPES = [
   "user-read-currently-playing",
   "user-read-playback-state",
-  "user-modify-playback-state",
-  "user-read-queue" // Needed for playlist/queue info
+  "user-modify-playback-state"
 ];
 
 export const getAuthUrl = (clientId: string, redirectUri: string) => {
