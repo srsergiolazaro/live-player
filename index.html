@@ -1,67 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RetroPlayer X-Walk</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #111; 
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #333; 
-        border-radius: 3px;
-      }
-      
-      /* Smooth transitions for images */
-      .album-art-shadow {
-        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RetroPlayer X-Walk</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #333;
+      border-radius: 3px;
+    }
+
+    /* Smooth transitions for images */
+    .album-art-shadow {
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Animations for Cover Art Transition */
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
       }
 
-      /* Animations for Cover Art Transition */
-      @keyframes slideInRight {
-        from { transform: translateX(100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
+      to {
+        transform: translateX(0);
+        opacity: 1;
       }
-      
-      @keyframes slideInLeft {
-        from { transform: translateX(-100%); opacity: 0; }
-        to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
       }
 
-      @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
       }
 
-      .animate-slide-right {
-        animation: slideInRight 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+      to {
+        opacity: 1;
+        transform: scale(1);
       }
+    }
 
-      .animate-slide-left {
-        animation: slideInLeft 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-      }
-      
-      .animate-fade-in {
-        animation: fadeIn 0.3s ease-out forwards;
-      }
+    .animate-slide-right {
+      animation: slideInRight 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
 
-      /* Glossy reflection logic */
-      .glass-reflection {
-        background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 45%);
-        pointer-events: none;
-      }
-    </style>
+    .animate-slide-left {
+      animation: slideInLeft 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    /* Glossy reflection logic */
+    .glass-reflection {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 45%);
+      pointer-events: none;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -74,7 +99,10 @@
 }
 </script>
 </head>
-  <body class="bg-stone-900 text-stone-200 overflow-hidden select-none">
-    <div id="root"></div>
-  </body>
+
+<body class="bg-stone-900 text-stone-200 overflow-hidden select-none">
+  <div id="root"></div>
+  <script type="module" src="index.tsx"></script>
+</body>
+
 </html>
