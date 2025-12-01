@@ -47,6 +47,15 @@ export const fetchQueue = async (token: string) => {
   return await res.json();
 };
 
+export const fetchPlaylist = async (token: string, playlistId: string) => {
+  const res = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+
+  if (!res.ok) return null;
+  return await res.json();
+};
+
 export const sendSpotifyCommand = async (token: string, command: 'next' | 'previous' | 'play' | 'pause') => {
   let endpoint = "";
   let method = "POST";
