@@ -8,6 +8,8 @@ export interface Song {
   coverUrl?: string;
   color?: string; // Tape color
   type: 'music' | 'voice'; // New field to distinguish tracks
+  isSpotify?: boolean; // Flag for external tracks
+  spotifyUri?: string;
 }
 
 export enum PlayState {
@@ -22,4 +24,9 @@ export interface ChatMessage {
   text: string;
   color: string;
   isSystem?: boolean;
+}
+
+export interface SpotifyConfig {
+  clientId: string;
+  redirectUri: string;
 }
